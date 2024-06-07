@@ -1,0 +1,8 @@
+{
+    "author": "FalAut",
+    "description": "This script can allow you go up and down ladders much faster.",
+    "versions": [10],
+    "modloaders": ["forge"],
+    "dependencies": [],
+    "incompatibilities": []
+}

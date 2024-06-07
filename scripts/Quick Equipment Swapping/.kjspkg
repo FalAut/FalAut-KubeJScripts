@@ -1,0 +1,8 @@
+{
+    "author": "FalAut",
+    "description": "Quickly switch equipment in inventory",
+    "versions": [10],
+    "modloaders": ["forge"],
+    "dependencies": [],
+    "incompatibilities": []
+}
