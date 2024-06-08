@@ -43,7 +43,7 @@ let beaconCheck = (/** @type {Internal.Level} */ level, /** @type {Internal.Bloc
 
 BlockEvents.rightClicked('beacon', (event) => {
     const { hand, level, block, player, item } = event
-    if (hand !== 'MAIN_HAND' || item !== 'kubejs:division_sigil' || level.dimension !== 'minecraft:the_end') return
+    if (hand != 'MAIN_HAND' || item != 'kubejs:division_sigil' || level.dimension != 'minecraft:the_end') return
 
     let counts = chestCheck(level, block.pos)
 
@@ -79,17 +79,16 @@ EntityEvents.death((event) => {
             let mobs = ['zombie', 'spider', 'cave_spider', 'witch', 'zombie_villager']
 
             for (let i = 0; i < 200; i++) {
-                let mob = mobs[Math.floor(Math.random() * mobs.length)]
+                let mob = mobs[Utils.random.nextInt(0, mobs.length - 1)]
                 let mobEntity = entity.block.createEntity(mob)
                 mobEntity.addTag('trial_mob')
-                mobEntity.x = Math.random() * 100 - 50 + entity.x
+                mobEntity.x = Utils.random.nextInt(entity.x - 50, entity.x + 50)
                 mobEntity.y = 65
-                mobEntity.z = Math.random() * 100 - 50 + entity.z
+                mobEntity.z = Utils.random.nextInt(entity.z - 50, entity.z + 50)
                 mobEntity.spawn()
             }
 
             server.runCommandSilent('effect give @e[tag=trial_mob] minecraft:speed infinite 4')
-            
             player.persistentData.putInt('trial_kill', 0)
             let bar = server.customBossEvents.create('kubejs:trial_bar', 'Kill: 0 / 100')
             bar.addPlayer(player)
