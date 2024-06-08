@@ -86,9 +86,10 @@ EntityEvents.death((event) => {
                 mobEntity.y = 65
                 mobEntity.z = Math.random() * 100 - 50 + entity.z
                 mobEntity.spawn()
-                server.runCommandSilent('effect give @e[tag=trial_mob] minecraft:speed infinite 4')
             }
 
+            server.runCommandSilent('effect give @e[tag=trial_mob] minecraft:speed infinite 4')
+            
             player.persistentData.putInt('trial_kill', 0)
             let bar = server.customBossEvents.create('kubejs:trial_bar', 'Kill: 0 / 100')
             bar.addPlayer(player)
