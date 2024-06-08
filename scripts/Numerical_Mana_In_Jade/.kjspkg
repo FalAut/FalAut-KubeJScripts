@@ -3,6 +3,6 @@
     "description": "Display mana value in Jade bar",
     "versions": [10],
     "modloaders": ["forge"],
-    "dependencies": ["mod:kubejsadditions", "mod:jade"],
+    "dependencies": ["mod:kubejsadditions", "mod:jade", "mod:botania"],
     "incompatibilities": []
 }
