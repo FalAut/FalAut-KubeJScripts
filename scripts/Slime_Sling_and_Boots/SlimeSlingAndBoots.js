@@ -62,10 +62,12 @@ StartupEvents.registry("item", (event) => {
 
             if (i > 6) i = 6;
 
-            let vec3 = entity.lookAngle.normalize();
+            if (entity.rayTrace().type == "block") {
+                let vec3 = entity.lookAngle.normalize();
 
-            entity.addDeltaMovement(Vec3d(vec3.x() * -i, (vec3.y() * -i) / 3, vec3.z() * -i));
-            addBounceHandler(entity, 0);
+                entity.addDeltaMovement(Vec3d(vec3.x() * -i, (vec3.y() * -i) / 3, vec3.z() * -i));
+                addBounceHandler(entity, 0);
+            }
 
             if (i > 1) entity.playSound("entity.slime.jump_small", 1, 1);
         });
