@@ -53,7 +53,7 @@ StartupEvents.registry("item", (event) => {
         .useDuration(() => 72000)
         .releaseUsing((itemstack, level, entity, timeLeft) => {
             if (!entity.onGround()) return;
-            let hitResult = itemstack.item.getPlayerPOVHitResult(level, entity, "none");
+
             let timeUsed = itemstack.useDuration - timeLeft;
             let i = timeUsed / 20;
 
@@ -62,12 +62,10 @@ StartupEvents.registry("item", (event) => {
 
             if (i > 6) i = 6;
 
-            if (hitResult?.type == "block") {
-                let vec3 = entity.lookAngle.normalize();
+            let vec3 = entity.lookAngle.normalize();
 
-                entity.addDeltaMovement(Vec3d(vec3.x() * -i, (vec3.y() * -i) / 3, vec3.z() * -i));
-                addBounceHandler(entity, 0);
-            }
+            entity.addDeltaMovement(Vec3d(vec3.x() * -i, (vec3.y() * -i) / 3, vec3.z() * -i));
+            addBounceHandler(entity, 0);
 
             if (i > 1) entity.playSound("entity.slime.jump_small", 1, 1);
         });
