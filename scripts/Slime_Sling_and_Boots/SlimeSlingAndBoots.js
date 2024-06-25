@@ -62,7 +62,7 @@ StartupEvents.registry("item", (event) => {
 
             if (i > 6) i = 6;
 
-            if (entity.rayTrace().type == "block") {
+            if (entity.rayTrace().block?.blockState?.fluidState?.fluidType == "minecraft:empty") {
                 let vec3 = entity.lookAngle.normalize();
 
                 entity.addDeltaMovement(Vec3d(vec3.x() * -i, (vec3.y() * -i) / 3, vec3.z() * -i));
