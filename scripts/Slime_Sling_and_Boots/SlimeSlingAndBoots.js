@@ -105,11 +105,11 @@ global.OnFallWithSlimeBoots = (/**@type {$LivingFallEvent} */ event) => {
     if (entity.getItemBySlot("feet") != "kubejs:slime_boots") return;
 
     if (!entity.crouching && distance > 2) {
-        if (!entity.abilities.mayfly) {
+        if (entity.abilities.mayfly) {
+            event.setDistance(distance);
+        } else {
             event.setDamageMultiplier(0);
             entity.resetFallDistance();
-        } else {
-            event.setDistance(distance);
         }
 
         if (level.clientSide) {
