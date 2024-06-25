@@ -99,7 +99,7 @@ global.BounceHandler = (/**@type {$TickEvent$PlayerTickEvent} */ event) => {
     player.persistentData.put("bounceData", bounceData);
 };
 
-global.OnFallWithSlimeBoot = (/**@type {$LivingFallEvent} */ event) => {
+global.OnFallWithSlimeBoots = (/**@type {$LivingFallEvent} */ event) => {
     const { entity, distance } = event;
     const { level } = entity;
     if (entity.getItemBySlot("feet") != "kubejs:slime_boots") return;
@@ -155,9 +155,9 @@ ForgeEvents.onEvent($TickEvent$PlayerTickEvent, (event) => {
 });
 
 ForgeEvents.onEvent($LivingFallEvent, (event) => {
-    global.OnFallWithSlimeBoot(event);
+    global.OnFallWithSlimeBoots(event);
 });
 
 ForgeEvents.onEvent($PlayerFlyableFallEvent, (event) => {
-    global.OnFallWithSlimeBoot(event);
+    global.OnFallWithSlimeBoots(event);
 });
