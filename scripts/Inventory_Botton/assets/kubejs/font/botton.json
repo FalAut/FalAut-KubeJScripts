@@ -1,0 +1,25 @@
+{
+    "providers": [
+        {
+            "type": "bitmap",
+            "file": "block/crafting_table_top.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": ["\u0061"]
+        },
+        {
+            "type": "bitmap",
+            "file": "kubejs:botton/ender_chest.png",
+            "ascent": 11,
+            "height": 18,
+            "chars": ["\u0062"]
+        },
+        {
+            "type": "bitmap",
+            "file": "block/cactus_side.png",
+            "ascent": 10,
+            "height": 14,
+            "chars": ["\u0063"]
+        }
+    ]
+}
