@@ -9,7 +9,7 @@
         },
         {
             "type": "bitmap",
-            "file": "kubejs:botton/ender_chest.png",
+            "file": "kubejs:button/ender_chest.png",
             "ascent": 11,
             "height": 18,
             "chars": ["\u0062"]
