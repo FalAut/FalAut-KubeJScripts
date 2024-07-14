@@ -15,7 +15,7 @@ ForgeEvents.onEvent("net.minecraftforge.event.entity.living.LivingHurtEvent", (e
             entity.setHealth(1);
             // Deduct the xp from the player
             entity.giveExperiencePoints(-xpRequired);
-            // Cancel the death event
+            // Cancel the hurt event
             event.setCanceled(true);
         }
     }
