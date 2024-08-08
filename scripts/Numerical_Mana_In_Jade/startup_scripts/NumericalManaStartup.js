@@ -1,13 +1,14 @@
 let $BlockEntity = Java.loadClass('net.minecraft.world.level.block.entity.BlockEntity')
 
 JadeEvents.onCommonRegistration((event) => {
-    event.blockDataProvider('kubejs:numerical_mana', $BlockEntity).setCallback((tag, accessor) => {
-        const { blockEntity } = accessor
+    const manaNbtKeys = ["currentMana", "maxMana", "mana", "manaToGet"];
+    event.blockDataProvider("kubejs:numerical_mana", $BlockEntity).setCallback((tag, accessor) => {
+        const { blockEntity } = accessor;
 
-        ;['currentMana', 'maxMana', 'mana', 'manaToGet'].forEach((key) => {
+        manaNbtKeys.forEach((key) => {
             if (blockEntity[key] != null) {
-                tag.putInt(key, blockEntity[key])
+                tag.putInt(key, blockEntity[key]);
             }
-        })
-    })
-})
+        });
+    });
+});
